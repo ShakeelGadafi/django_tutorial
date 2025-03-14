@@ -8,8 +8,10 @@ from .models import User
 from .serialiazer import UserSerialiazer
 
 @api_view(['GET'])
-def get_user(request):  
-    return Response(UserSerialiazer({'name' : 'shakeel','age': 23}).data)
+def get_users(request):
+    users=User.objects.all()
+    serializer = UserSerialiazer(users, many=True) 
+    return Response(serializer.data)
 
 @api_view(['POST'])
 def create_user(request):  
