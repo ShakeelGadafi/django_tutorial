@@ -9,6 +9,6 @@ from .serialiazer import UserSerialiazer
 
 @api_view(['GET'])
 def get_user(request):  
-    return Response(UserSerialiazer({'name' : 'shakeel','age': 23}))
+    return Response(UserSerialiazer({'name' : 'shakeel','age': 23}).data)
 
  
